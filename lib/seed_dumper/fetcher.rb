@@ -17,10 +17,13 @@ module SeedDumper
           case value.class.to_s
             when "Time"
               value = "\"#{value}\""
+              puts "Time[#{key}] (#{value})"
             when "DateTime"
               value = "\"#{value}\""
+              puts "DateTime[#{key}] (#{value})"
             when "Date"
               value = "\"#{value}\""
+              puts "Date[#{key}] (#{value})"
             else
               value = value.inspect
           end
