@@ -15,6 +15,8 @@ module SeedDumper
 
         record.attributes.delete_if { |k, v| ignore.include?(k) }.each do |key, value|
           case value.class.to_s
+            when "ActiveSupport::TimeWithZone"
+              value = "\"#{value}\""
             when "Time"
               value = "\"#{value}\""
             when "DateTime"
