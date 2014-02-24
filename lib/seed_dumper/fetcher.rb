@@ -14,13 +14,12 @@ module SeedDumper
         attr_s = [];
 
         record.attributes.delete_if { |k, v| ignore.include?(k) }.each do |key, value|
-          case value.class
-            when Time
+          case value.class.to_s
+            when "Time"
               value = "\"#{value}\""
-            when DateTime
+            when "DateTime"
               value = "\"#{value}\""
-            when Date
-              puts "[#{key}] #{value.class}"
+            when "Date"
               value = "\"#{value}\""
             else
               value = value.inspect
