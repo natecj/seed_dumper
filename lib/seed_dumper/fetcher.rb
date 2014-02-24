@@ -23,10 +23,12 @@ module SeedDumper
               value = "\"#{value}\""
             when "Date"
               value = "\"#{value}\""
+            when "BigDecimal"
+              value = value.to_f
             else
-              puts "[#{key}] (#{value.class.to_s})"
+#               puts "[#{key}] (#{value.class.to_s})"
               value = value.inspect
-              puts " -> (#{value})"
+#               puts " -> (#{value})"
           end
           #value = value.class == Time ? "\"#{value}\"" : value.inspect
           value = nil if value.is_a?(String) && value == "\"\""
