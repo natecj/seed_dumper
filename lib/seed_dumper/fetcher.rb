@@ -24,7 +24,9 @@ module SeedDumper
             when "Date"
               value = "\"#{value}\""
             else
+              puts "[#{key}] (#{value.class.to_s})"
               value = value.inspect
+              puts " -> (#{value})"
           end
           #value = value.class == Time ? "\"#{value}\"" : value.inspect
           value = nil if value.is_a?(String) && value == "\"\""
