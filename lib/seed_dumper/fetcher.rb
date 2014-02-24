@@ -20,7 +20,7 @@ module SeedDumper
             when DateTime
               value = "\"#{value}\""            
             else
-              value = value.inpsect
+              value = value.inspect
           end
           #value = value.class == Time ? "\"#{value}\"" : value.inspect
           value = nil if value.is_a?(String) && value == "\"\""
