@@ -14,7 +14,15 @@ module SeedDumper
         attr_s = [];
       
         record.attributes.delete_if { |k, v| ignore.include?(k) }.each do |key, value|
-          value = value.class == Time ? "\"#{value}\"" : value.inspect
+          case value.class
+            when Time
+              value = "\"#{value}\""
+            when DateTime
+              value = "\"#{value}\""            
+            else
+              value = value.inpsect
+          end
+          #value = value.class == Time ? "\"#{value}\"" : value.inspect
           value = nil if value.is_a?(String) && value == "\"\""
           value = nil if value == 'nil' || value == "nil"
 
